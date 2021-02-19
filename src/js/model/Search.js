@@ -12,7 +12,7 @@ export default class Search {
       this.result = result.data.recipes;
       return this.result;
     } catch (error) {
-      alert("aldaa: " + error);
+      console.log("aldaa: " + error);
     }
   }
 }
