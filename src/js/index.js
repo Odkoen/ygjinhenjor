@@ -1,6 +1,6 @@
 require("@babel/polyfill/");
 import Search from "./model/Search";
-import { elements } from "./view/base";
+import { elements,renderLoader,clearLoader } from "./view/base";
 import * as searchView from "./view/searchView";
 
 
@@ -22,8 +22,10 @@ zahialj baigaa jor nairlaga
         //hailt hiihed zoriulj delgetsiig beldene
         searchView.clearSearchQuery();
         searchView.clearSearchResult();
+        renderLoader(elements.searchResultDiv);
     //hailtiig guitsetgene
     await state.search.doSearch();
+    clearLoader();
     //hailtiin ur dung delgetsend gargana
     if(state.search.result === undefined) alert("Food not found!");
     else searchView.renderRecipes(state.search.result);
